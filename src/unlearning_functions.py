@@ -59,6 +59,6 @@ def unlearn_2(
 ):
     # TODO
     # Insert here your custom unlearning method
-    net.fc.reset_parameters()
+    net.linear.reset_parameters()
     finetune(net, retain_loader, lr=0.002, epochs=1)
     return

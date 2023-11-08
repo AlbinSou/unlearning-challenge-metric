@@ -72,7 +72,7 @@ def train_and_save_checkpoint(indices, seed):
     retain_set = torch.utils.data.Subset(train, indices)
 
     model = resnet18()
-    model.fc = nn.Linear(512, 10)
+    model.linear = nn.Linear(512, 10)
     model.to(CONFIG.DEVICE)
 
     train_loader = torch.utils.data.DataLoader(retain_set, batch_size=64, shuffle=True)
@@ -101,7 +101,7 @@ def train_and_save_first_checkpoint(seed):
     train, test = load_cifar10()
 
     model = resnet18()
-    model.fc = nn.Linear(512, 10)
+    model.linear = nn.Linear(512, 10)
     model.to(CONFIG.DEVICE)
 
     train_loader = torch.utils.data.DataLoader(train, batch_size=64, shuffle=True)

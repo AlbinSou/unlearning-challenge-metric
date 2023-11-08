@@ -30,7 +30,7 @@ def launch_unlearning_method(indices_forget, indices_retain, seed, unlearn_func)
     forget_set = torch.utils.data.Subset(train, indices_forget)
 
     model = resnet18()
-    model.fc = nn.Linear(512, 10)
+    model.linear = nn.Linear(512, 10)
     model.to(CONFIG.DEVICE)
 
     model.load_state_dict(
@@ -69,7 +69,7 @@ def main(args):
         forget_set = torch.utils.data.Subset(train, forget_indices)
 
         model = resnet18()
-        model.fc = nn.Linear(512, 10)
+        model.linear = nn.Linear(512, 10)
         model.to(CONFIG.DEVICE)
 
         model.load_state_dict(

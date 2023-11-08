@@ -13,7 +13,7 @@ def main(args):
     CONFIG.DEVICE = torch.device(args.device)
 
     model = resnet18()
-    model.fc = nn.Linear(512, 10)
+    model.linear = nn.Linear(512, 10)
     model.to(CONFIG.DEVICE)
 
     model.load_state_dict(torch.load(args.checkpoint_name))
